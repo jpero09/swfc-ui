@@ -5,21 +5,8 @@
   "private": false,
   "main": "server/app",  
   "scripts": {
-    "assets": "npm run assets:images",
-    "assets:images": "mkdir \"dist/images\" && cp ./server/assets/images/*.* ./dist/images/",
-    "build": "npm run build:css && npm run build:pages && npm run build:js && npm run assets",
-    "build:css": "mkdir \"dist/css\" && npm run css",
-    "build:js": "mkdir \"dist/js\" && npm run js",
-    "build:pages": "mkdir \"dist/pages\" && npm run pages",
-    "clean": "rimraf dist/*",
-    "css": "stylus -u ./node_modules/nib/lib/nib ./server/stylus/style.styl --out ./dist/css",
     "dev": "NODE_ENV=dev&&npm start",
-    "js": "npm run js:concat",
-    "js:concat": "concat-cli -f ./server/assets/js/controllers.js -o ./dist/js/script.js",
-    "js:uglify": "uglifyjs ./dist/js/script.js -o ./dist/js/script.min.js",
     "lint": "jscs . --reporter=./node_modules/jscs-stylish/jscs-stylish.js",
-    "pages": "jade ./server/views -o ./dist/pages",
-    "prebuild": "npm run clean",
     "start": "node ./server/app"
   },
   "keywords": [
@@ -54,17 +41,20 @@
     "nconf": "0.7.2",
     "serve-favicon": "2.3.0",
     "serve-static": "1.10.0",
-    "stylus": "0.52.0",
     "request": "2.51.0"
   },
   "devDependencies": {
-    "concat-cli": "1.0.1",
-    "stylus": "0.52.0",
+    "gulp": "3.9.0",
+    "gulp-concat": "2.6.0",
+    "gulp-jshint": "1.11.2",
+    "gulp-load-plugins": "1.0.0-rc.1",
+    "gulp-newer": "0.5.1",
+    "gulp-ng-annotate": "1.1.0",
+    "gulp-stylus": "2.0.6",
+    "gulp-uglify": "1.2.0",
     "jscs": "2.0.0",
     "jscs-stylish": "^0.3.1",
     "nib": "1.1.0",
-    "pre-commit": "1.1.1",
-    "rimraf": "2.4.2",
-    "uglify-js": "2.4.24"
+    "pre-commit": "1.1.1"
   }
 }
