@@ -24,32 +24,36 @@ html(lang='en', data-ng-app='app')
     link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
     
     link(rel='stylesheet', href='/css/style.css')
-  // block body-ng-controller
-  // +body-ng-controller
-  body(data-ng-controller='mainController')
-    .header
-      .logo SFWC-UI
+  body
+    .header(style='height:78px')
+      // "Ben Kenobi" by Source (WP:NFCC#4). Licensed under Fair use via Wikipedia - https://en.wikipedia.org/wiki/File:Ben_Kenobi.png#/media/File:Ben_Kenobi.png
+      .headerImgLeft(style='position:absolute;left:0px;top:0px;')
+        img(src='./images/Ben_Kenobi.jpg')  
+      div.logo(style='display:inline-block;margin-top:15px;') SWFC-UI
+      .headerImgRight(style='position:absolute;right:0px;top:0px;')
+        img(src='./images/vader.jpg')
+    .clearfix    
     .container-fluid
       ul.nav.nav-tabs(id='headerNav')
         li.active
-          a(href='#') Home
+          a(ui-sref='home') Home
         li 
-          a(href='#cards') Cards
+          a(ui-sref='cards') Cards
         li
-          a(href='#vehicles') Vehicles
+          a(ui-sref='vehicles') Vehicles
         li
-          a(href='#parts') Parts
+          a(ui-sref='parts') Parts
         li
-          a(href='#events') Events  
+          a(ui-sref='events') Events  
         li
-          a(href='#law') LAW
+          a(ui-sref='law') LAW
         li
-          a(href='#forms') Forms
+          a(ui-sref='forms') Forms
         li
-          a(href='#legions') Legions  
+          a(ui-sref='legions') Legions  
       .row
         .col-sm-12.col-md-12.col-lg-12
-          div(data-ng-view)
+          div(data-ui-view='main')
     .footer(style='margin:0px')
       .row
         .col-sm-12.col-md-12.col-lg-12
@@ -58,5 +62,6 @@ html(lang='en', data-ng-app='app')
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
     script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js')
     script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js')
     script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
     script(src='js/script.min.js')
