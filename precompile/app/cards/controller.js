@@ -6,22 +6,20 @@
     .controller('cardsController', cardsController);
 
   /* @ngInject */
-  function cardsController($scope) {
+  function cardsController($scope, Cards) {
     $scope.isLoading = true;
 
     $scope.init = function() {
-      $scope.isLoading = false;
-
-      /*
       Cards.GetAll({},
         function(data) {
-          $scope.message = data;
+          $scope.isLoading = false;
+          $scope.cards = data;
         },
         function(error) {
-          $scope.message = error;
+          $scope.message = 'ERROR? ' + error;
+          $scope.isLoading = false;
         }
       );
-      */
       initNavLinks();
     };
 

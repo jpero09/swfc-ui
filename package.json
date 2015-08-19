@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "NODE_ENV=dev&&npm start",
     "lint": "jscs . --reporter=./node_modules/jscs-stylish/jscs-stylish.js",
-    "start": "node ./server/app"
+    "start": "node ./server/app",
+    "postinstall": "gulp"
   },
   "keywords": [
     "swfc",

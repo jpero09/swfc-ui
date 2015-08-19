@@ -10,7 +10,7 @@
   ]);
 
   angular.module('app.controllers', []);
-  angular.module('app.factories', []);
+  angular.module('app.factories', ['ngResource']);
 
   function initNavLinks() {
     $('.nav a').on('click', function() {
