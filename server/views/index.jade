@@ -1,9 +1,68 @@
-extends _layouts/master
+- var controller_name = '';
 
-// append body-ng-controller
-//  - controller_name = 'mainController as mc'
+mixin body-ng-controller
+  if (controller_name)
+    body(data-ng-controller='#{controller_name}')
+      block
+  else
+    body
+      block
 
-append body-content
-  .row
-    .col-md-12
-      .well(style='height:100vh') Welcome to the future home of the SWFC UI site!
+doctype html5
+html(lang='en', data-ng-app='app')
+  head
+    base(href='/')
+    title SWFC-UI
+    block header-stylesheets
+
+    link(rel='dns-prefetch', href='//ajax.googleapis.com')
+    link(rel='dns-prefetch', href='//fonts.googleapis.com')
+    link(rel='dns-prefetch', href='//maxcdn.bootstrapcdn.com')
+
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Open+Sans:400,700')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+    
+    link(rel='stylesheet', href='/css/style.css')
+  body
+    .header(style='height:78px')
+      // "Ben Kenobi" by Source (WP:NFCC#4). Licensed under Fair use via Wikipedia - https://en.wikipedia.org/wiki/File:Ben_Kenobi.png#/media/File:Ben_Kenobi.png
+      .headerImgLeft(style='position:absolute;left:0px;top:0px;')
+        img(src='./images/Ben_Kenobi.jpg')  
+      div.logo(style='display:inline-block;margin-top:15px;') SWFC-UI
+      .headerImgRight(style='position:absolute;right:0px;top:0px;')
+        img(src='./images/vader.jpg')
+    .clearfix    
+    .container-fluid
+      ul.nav.nav-tabs(id='headerNav')
+        li.active
+          a(ui-sref='home') Home
+        li 
+          a(ui-sref='cards') Cards
+        li
+          a(ui-sref='vehicles') Vehicles
+        li
+          a(ui-sref='parts') Parts
+        li
+          a(ui-sref='events') Events  
+        li
+          a(ui-sref='law') LAW
+        li
+          a(ui-sref='forms') Forms
+        li
+          a(ui-sref='legions') Legions  
+      .row
+        .col-sm-12.col-md-12.col-lg-12
+          div(data-ui-view='main')
+    .footer(style='margin:0px')
+      .row
+        .col-sm-12.col-md-12.col-lg-12
+          | © 2015 SWFC-UI
+    block body-scripts
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js')
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    script(src='js/script.min.js')
