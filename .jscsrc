@@ -24,6 +24,6 @@
     "excludeFiles": [
       "node_modules/**",
       "dist/**",
-      ".c9/**"
+      "./.c9/**"
     ]
 }
