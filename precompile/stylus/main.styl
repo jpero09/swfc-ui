@@ -12,12 +12,12 @@ body
   background-color #FFFFFF
 
 .header
-  border-bottom 1px solid blue
+  
   margin-bottom 5px
   background-color black
   color white
   text-align center
-
+  box-shadow 0 0 10px 1px #000000
   .logo
     font-family: jedi
     font-weight bold
@@ -32,7 +32,55 @@ body
   padding 5px
   font-size 12px
 
-.card
+.loading
+  margin 40px 0px
+  text-align center
+  font-weight bold
+  font-size 30px
+  font-family jedi
+  i
+    margin-right 5px
+
+// SWFC CARDS (Careful for bootstrap 4.* overrides here)
+.card-image
+  float left
+  padding 5px
+  img
+    height 142px
+
+.card-light
+  background linear-gradient(left, '#1B1B1B', $light)
+  border-color $light
+  .card-header, .card-footer
+    background $light
+    .side
+      background darken($light, 50%)
+      box-shadow 0px 0px 10px 2px lighten($light, 50%)
+.card-dark
+  background linear-gradient(left, '#1B1B1B', $dark)
+  border-color $dark
+  .card-header, .card-footer
+    background $dark
+    .side
+      background darken($dark, 50%)
+      box-shadow 0px 0px 10px 2px lighten($dark, 50%)
+.card-neutral
+  background linear-gradient(left, '#1B1B1B', $neutral)
+  border-color $neutral  
+  .card-header, .card-footer
+    background $neutral
+    .side
+      background darken($neutral, 50%)
+      box-shadow 0px 0px 10px 2px lighten($neutral, 50%)
+.side
+  display inline-block
+  padding 2px 5px
+  background #1b1b1b
+  float right
+.card-footer i
+  margin-right 5px
+      
+.cardOH
   border 1px solid yellow
   color #FFFFFF
   margin 5px
@@ -63,12 +111,7 @@ body
     padding 10px
     font-weight bold
     font-size 20px
-    .side
-      display inline-block
-      padding 2px 5px
-      background #1b1b1b
-      box-shadow 0px 0px 10px 2px $dark
-      float right
+    
   table
     color #FFFFFF
     margin 5px
