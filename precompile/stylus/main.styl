@@ -1,22 +1,23 @@
-@import 'nib'
-
-global-reset()
 
 @font-face {
    font-family: jedi;
    src: url(../fonts/Starkiller.woff);
 }
 
+$light = #24535B
+$dark = #601F1F
+$neutral = #7F7F7F
+
 body
   background-color #FFFFFF
 
 .header
-  border-bottom 1px solid blue
+  
   margin-bottom 5px
   background-color black
   color white
   text-align center
-
+  box-shadow 0 0 10px 1px #000000
   .logo
     font-family: jedi
     font-weight bold
@@ -30,3 +31,89 @@ body
   text-align center
   padding 5px
   font-size 12px
+
+.loading
+  margin 40px 0px
+  text-align center
+  font-weight bold
+  font-size 30px
+  font-family jedi
+  i
+    margin-right 5px
+
+// SWFC CARDS (Careful for bootstrap 4.* overrides here)
+.card-image
+  float left
+  padding 5px
+  img
+    height 142px
+
+.card-light
+  background linear-gradient(left, '#1B1B1B', $light)
+  border-color $light
+  .card-header, .card-footer
+    background $light
+    .side
+      background darken($light, 50%)
+      box-shadow 0px 0px 10px 2px lighten($light, 50%)
+.card-dark
+  background linear-gradient(left, '#1B1B1B', $dark)
+  border-color $dark
+  .card-header, .card-footer
+    background $dark
+    .side
+      background darken($dark, 50%)
+      box-shadow 0px 0px 10px 2px lighten($dark, 50%)
+.card-neutral
+  background linear-gradient(left, '#1B1B1B', $neutral)
+  border-color $neutral  
+  .card-header, .card-footer
+    background $neutral
+    .side
+      background darken($neutral, 50%)
+      box-shadow 0px 0px 10px 2px lighten($neutral, 50%)
+.side
+  display inline-block
+  padding 2px 5px
+  background #1b1b1b
+  float right
+.card-footer i
+  margin-right 5px
+      
+.cardOH
+  border 1px solid yellow
+  color #FFFFFF
+  margin 5px
+  &.light
+    background linear-gradient(left, '#1B1B1B', $light)
+    .card-heading
+      background linear-gradient(right, '#1B1B1B', $light)
+      .side
+        box-shadow 0px 0px 10px 2px $light
+  &.dark
+    background linear-gradient(left, '#1B1B1B', $dark)
+    .card-heading
+      background linear-gradient(right, '#1B1B1B', $dark)
+      .side
+        box-shadow 0px 0px 10px 2px $dark
+  &.neutral
+    background linear-gradient(left, '#1B1B1B', $neutral)
+    .card-heading
+      background linear-gradient(right, '#1B1B1B', $neutral)
+      .side
+        box-shadow 0px 0px 10px 2px $neutral
+  .card-image
+    float left
+    padding 5px
+    img
+      height 142px
+  .card-heading
+    padding 10px
+    font-weight bold
+    font-size 20px
+    
+  table
+    color #FFFFFF
+    margin 5px
+    th, td
+      text-align center

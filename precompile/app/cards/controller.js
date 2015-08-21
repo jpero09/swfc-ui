@@ -23,7 +23,22 @@
       initNavLinks();
     };
 
+    $scope.getTypeIcon = function(type) {
+      var output = 'fa-question-circle';
+      type = (type) ? type.toLowerCase(): undefined;
+      switch(type){
+        case 'empire': output = 'fa-empire'; break;
+        case 'rebel': output = 'fa-ra'; break;
+        default:
+          console.log('Unknown type:', type);
+          break;
+      }
+
+      return output;
+    }
+
     $scope.init();
+    
   }
 
   function initNavLinks() {

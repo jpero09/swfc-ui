@@ -11,7 +11,7 @@
 
     $stateProvider
       .state('home', {
-        url: '',
+        url: '/',
         views: {
           main: {
             templateUrl: 'home/home',
@@ -51,6 +51,6 @@
         }
       });
 
-    $urlRouterProvider.otherwise('home');
+    $urlRouterProvider.otherwise('/');
   }
 })();
