@@ -35,21 +35,21 @@
           break;
         case 'x-wing':
           output = 'xWing';
-          break;  
+          break;
         case 'aat':
           output = 'armoredAssaultTank';
-          break;  
+          break;
         case 't-16 skyhopper':
           output = 't16Skyhopper';
-          break;  
+          break;
         case 'tie fighter':
           output = 'tieFighter';
-          break;    
+          break;
         case 'tie interceptor':
           output = 'tieInterceptor';
-          break;      
+          break;
       }
-  
+
       return './images/vehicles/' + output + '.png';
     };
 

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   var defaultTimeout = 5000;
-  
+
   angular
     .module('app.factories')
     .factory('Cards', cardFactory)
@@ -16,7 +16,7 @@
       Delete: {method: 'DELETE', timeout: defaultTimeout}
     });
   }
-  
+
   /* @ngInject */
   function vehiclesFactory($resource) {
     return $resource('./api/vehicles/:id', {}, {
