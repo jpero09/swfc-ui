@@ -2,17 +2,15 @@ var request = require('request');
 var _ = require('lodash');
 var baseUri = 'https://swfc.herokuapp.com'; //TODO: Config-a-fy this. Right meow.
 
-var swfcController = function() { };
+var controller = function() { };
 
-// Cards
-function getAllCards(req, res) {
+function getAll(req, res) {
   var self = this;
   var options = {
     method: req.method,
     timeout: 10 * 1000,
     json: true,
-    uri: baseUri + '/cards',
-    headers: {adapter: 'mock'}
+    uri: baseUri + '/vehicles'
   };
   // logger.debug('Making service request:', options);
 
@@ -25,5 +23,5 @@ function getAllCards(req, res) {
 }
 
 // Exports and assignments
-swfcController.getAllCards = getAllCards;
-module.exports = swfcController;
+controller.getAll = getAll;
+module.exports = controller;

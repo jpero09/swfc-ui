@@ -30,7 +30,7 @@
         case 'empire': output = 'fa-empire'; break;
         case 'rebel': output = 'fa-ra'; break;
         default:
-          console.log('Unknown type:', type);
+          // console.log('Unknown type:', type);
           break;
       }
 
@@ -38,7 +38,6 @@
     };
 
     $scope.init();
-
   }
 
   function initNavLinks() {

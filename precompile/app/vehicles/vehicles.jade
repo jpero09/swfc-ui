@@ -1,2 +1,35 @@
-.jumbotron.text-center
-	p {{ message }}
+div
+  div(data-ng-show='isLoading')
+    .loading 
+      i.fa.fa-empire.fa-spin
+      | Loading...
+  div(data-ng-show='!isLoading')
+    .row(data-ng-show='!vehicles || !vehicles.length')
+      .col-md-12
+        .m-a
+          .alert.alert-danger.fade.in 
+            i.fa.fa-exclamation-triangle
+            span &nbsp;No vehicle data available at this time.
+    .row(data-ng-repeat='vehicle in vehicles')
+      .col-md-12
+        .card.card-inverse.m-a.card-neutral
+          .card-image
+            img.media-object(data-ng-src='{{getImagePath(vehicle.name)}}', alt='{{vehicle.name}}')
+          .card-header
+              | {{vehicle.name}}
+          .card-block
+            .card-text.pull-left
+              div Cost: {{vehicle.cost}}
+              div ACC: {{vehicle.accuracy}}
+              div EVA: {{vehicle.evade}}
+              div X-Size: {{vehicle.xSize}}
+              div Y-Size: {{vehicle.ySize}}
+              div # of Actions: {{vehicle.attacksPerTurn}}
+            .card-text.pull-left
+              div Pilots: {{vehicle.numberOfPilots}}
+              div Co-Pilots: {{vehicle.numberOfCopilots}}
+              div Parts: {{vehicle.parts}}
+          .clearfix    
+          .card-block
+            .card-text
+              div {{vehicle.description}}
