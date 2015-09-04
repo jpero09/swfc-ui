@@ -3,17 +3,17 @@
 
   angular
     .module('app.controllers')
-    .controller('cardsController', cardsController);
+    .controller('partsController', partsController);
 
   /* @ngInject */
-  function cardsController($scope, Cards) {
+  function partsController($scope, Parts) {
     $scope.isLoading = true;
 
     $scope.init = function() {
-      Cards.GetAll({},
+      Parts.GetAll({},
         function(data) {
           $scope.isLoading = false;
-          $scope.cards = data;
+          $scope.parts = data;
         },
         function(error) {
           $scope.message = 'ERROR? ' + error;
@@ -23,22 +23,8 @@
       initNavLinks();
     };
 
-    $scope.getTypeIcon = function(type) {
-      var output = 'fa-question-circle';
-      type = (type) ? type.toLowerCase() : undefined;
-      switch(type){
-        case 'empire': output = 'fa-empire'; break;
-        case 'rebel': output = 'fa-ra'; break;
-        default:
-          // console.log('Unknown type:', type);
-          break;
-      }
-
-      return output;
-    };
-
     $scope.init();
-  }
+  };
 
   function initNavLinks() {
     $('.nav a').on('click', function() {

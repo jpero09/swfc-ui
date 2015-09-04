@@ -1,17 +1,40 @@
 (function() {
   'use strict';
+  var defaultTimeout = 5000;
+
   angular
     .module('app.factories')
-    .factory('Cards', cardFactory);
+    .factory('Cards', cardFactory)
+    .factory('Parts', partsFactory)
+    .factory('Vehicles', vehiclesFactory);
 
   /* @ngInject */
   function cardFactory($resource) {
     return $resource('./api/cards/:id', {}, {
-      Get: {method: 'GET', timeout: 5000},
-      GetAll: {method: 'GET', timeout: 5000, isArray: true},
-      Save: {method: 'POST', timeout: 5000},
-      Delete: {method: 'DELETE', timeout: 5000}
+      Get: {method: 'GET', timeout: defaultTimeout},
+      GetAll: {method: 'GET', timeout: defaultTimeout, isArray: true},
+      Save: {method: 'POST', timeout: defaultTimeout},
+      Delete: {method: 'DELETE', timeout: defaultTimeout}
     });
   }
 
+  /* @ngInject */
+  function partsFactory($resource) {
+    return $resource('./api/parts/:id', {}, {
+      Get: {method: 'GET', timeout: defaultTimeout},
+      GetAll: {method: 'GET', timeout: defaultTimeout, isArray: true},
+      Save: {method: 'POST', timeout: defaultTimeout},
+      Delete: {method: 'DELETE', timeout: defaultTimeout}
+    });
+  }
+
+  /* @ngInject */
+  function vehiclesFactory($resource) {
+    return $resource('./api/vehicles/:id', {}, {
+      Get: {method: 'GET', timeout: defaultTimeout},
+      GetAll: {method: 'GET', timeout: defaultTimeout, isArray: true},
+      Save: {method: 'POST', timeout: defaultTimeout},
+      Delete: {method: 'DELETE', timeout: defaultTimeout}
+    });
+  }
 })();

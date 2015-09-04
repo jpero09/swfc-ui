@@ -3,10 +3,9 @@
 
   angular
     .module('app.controllers')
-    .controller('partsController', partsController);
+    .controller('eventsController', eventsController);
 
-  function partsController($scope) {
-    $scope.message = 'Here is where the parts will be!';
+  function eventsController($scope) {
     initNavLinks();
   }
 

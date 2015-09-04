@@ -30,6 +30,16 @@
           }
         }
       })
+     .state('events', {
+        url: '/events',
+        views: {
+          main: {
+            templateUrl: 'events/events',
+            controller: 'eventsController',
+            controllerAs: 'ec'
+          }
+        }
+      })
      .state('parts', {
         url: '/parts',
         views: {
@@ -46,6 +56,16 @@
           main: {
             templateUrl: 'vehicles/vehicles',
             controller: 'vehiclesController',
+            controllerAs: 'vc'
+          }
+        }
+      })
+      .state('vehicles_overview', {
+        url: '/vehicles/:id',
+        views: {
+          main: {
+            templateUrl: 'vehicles/overview',
+            controller: 'vehiclesOverviewController',
             controllerAs: 'vc'
           }
         }
