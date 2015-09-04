@@ -10,5 +10,13 @@
   		"level": "info",
 			"pretty": true
 		}
-	}	
+	},
+	"services": {
+	  "adapter": "postgres",
+	  "timeout": 10000,
+	  "swfc": {
+	    "url": "http://swfc.herokuapp.com",
+	    "adapter": "postgres"
+	  }
+	}
 }

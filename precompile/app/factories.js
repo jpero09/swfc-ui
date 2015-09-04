@@ -5,11 +5,22 @@
   angular
     .module('app.factories')
     .factory('Cards', cardFactory)
+    .factory('Parts', partsFactory)
     .factory('Vehicles', vehiclesFactory);
 
   /* @ngInject */
   function cardFactory($resource) {
     return $resource('./api/cards/:id', {}, {
+      Get: {method: 'GET', timeout: defaultTimeout},
+      GetAll: {method: 'GET', timeout: defaultTimeout, isArray: true},
+      Save: {method: 'POST', timeout: defaultTimeout},
+      Delete: {method: 'DELETE', timeout: defaultTimeout}
+    });
+  }
+
+  /* @ngInject */
+  function partsFactory($resource) {
+    return $resource('./api/parts/:id', {}, {
       Get: {method: 'GET', timeout: defaultTimeout},
       GetAll: {method: 'GET', timeout: defaultTimeout, isArray: true},
       Save: {method: 'POST', timeout: defaultTimeout},
@@ -26,5 +37,4 @@
       Delete: {method: 'DELETE', timeout: defaultTimeout}
     });
   }
-
 })();

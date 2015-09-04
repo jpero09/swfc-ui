@@ -3,7 +3,8 @@
 
   angular
     .module('app.controllers')
-    .controller('vehiclesController', vehiclesController);
+    .controller('vehiclesController', vehiclesController)
+    .controller('vehiclesOverviewController', vehiclesOverviewController);
 
   /* @ngInject */
   function vehiclesController($scope, Vehicles) {
@@ -23,38 +24,30 @@
       initNavLinks();
     };
 
-    $scope.getImagePath = function(name) {
-      var output = 'unknown';
-      var cleanName = (name) ? name.toLowerCase() : null;
-      switch(cleanName){
-        case 'at-st':
-          output = 'atst';
-          break;
-        case 'b-wing':
-          output = 'bWing';
-          break;
-        case 'x-wing':
-          output = 'xWing';
-          break;
-        case 'aat':
-          output = 'armoredAssaultTank';
-          break;
-        case 't-16 skyhopper':
-          output = 't16Skyhopper';
-          break;
-        case 'tie fighter':
-          output = 'tieFighter';
-          break;
-        case 'tie interceptor':
-          output = 'tieInterceptor';
-          break;
-      }
+    $scope.init();
+  };
+  
+  /* @ngInject */
+  function vehiclesOverviewController($scope, $stateParams, Vehicles) {
+    $scope.isLoading = true;
 
-      return './images/vehicles/' + output + '.png';
+    $scope.init = function() {
+      Vehicles.Get({id:$stateParams.id},
+        function(data) {
+          $scope.isLoading = false;
+          $scope.vehicle = data;
+        },
+        function(error) {
+          $scope.message = 'ERROR? ' + error;
+          $scope.isLoading = false;
+        }
+      );
+      initNavLinks();
     };
 
     $scope.init();
   };
+  
 
   function initNavLinks() {
     $('.nav a').on('click', function() {

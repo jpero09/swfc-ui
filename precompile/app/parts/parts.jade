@@ -1,2 +1,33 @@
-.jumbotron.text-center
-	p {{ message }}
+div
+  div(data-ng-show='isLoading')
+    .loading 
+      i.fa.fa-empire.fa-spin
+      | Loading...
+  div(data-ng-show='!isLoading')
+    .row(data-ng-show='!parts || !parts.length')
+      .col-md-12
+        .m-a
+          .alert.alert-danger.fade.in 
+            i.fa.fa-exclamation-triangle
+            span &nbsp;No part data available at this time.
+    .row(data-ng-repeat='part in parts')
+      .col-md-12
+        .card.card-inverse.m-a.card-neutral
+          .card-image
+            img.media-object(data-ng-src='./images/parts/{{part.id}}_ll.png', alt='{{part.name}}')
+          .card-header
+              | {{part.name}}
+          .card-block
+            .card-text.pull-left
+              div Cost: {{part.cost}}
+              div ATK: {{part.attack}}
+              div DEF: {{part.defense}}
+              div HP: {{part.hp}}
+            .card-text.pull-left
+              div ACC: {{part.accuracy}}
+              div EVA: {{part.evade}}
+              div Skill: 
+          .clearfix    
+          .card-block
+            .card-text
+              div {{part.description}}

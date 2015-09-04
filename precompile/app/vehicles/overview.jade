@@ -1,0 +1,59 @@
+div
+  div(data-ng-show='isLoading')
+    .loading 
+      i.fa.fa-empire.fa-spin
+      | Loading...
+  div(data-ng-show='!isLoading')
+    .row
+      .col-md-12
+        .m-a
+          a(type='button', href='./vehicles').btn.btn-secondary 
+            i.fa.fa-arrow-left
+            | &nbsp;Back
+    .row(data-ng-show='!vehicle')
+      .col-md-12
+        .m-a
+          .alert.alert-danger.fade.in 
+            i.fa.fa-exclamation-triangle
+            span &nbsp;No data for this vehicle is available at this time.
+    div(data-ng-show='vehicle')       
+      .row
+        .col-md-12
+          .card.card-inverse.m-a.card-neutral
+            .card-image
+              img.media-object(data-ng-src='./images/vehicles/{{vehicle.id}}_ll.png', alt='{{vehicle.name}}')
+            .card-header
+                | {{vehicle.name}}
+            .card-block
+              .card-text.pull-left
+                div Cost: {{vehicle.cost}}
+                div ACC: {{vehicle.accuracy}}
+                div EVA: {{vehicle.evade}}
+                div X-Size: {{vehicle.xSize}}
+                div Y-Size: {{vehicle.ySize}}
+                div # of Actions: {{vehicle.attacksPerTurn}}
+            .clearfix    
+            .card-block
+              .card-text
+                div {{vehicle.description}}
+      .row
+        .col-md-8
+          .card.card-inverse.m-a.card-neutral
+            .card-header
+                | Pilots
+            .card-block
+              .card-text
+                .muted No pilots for this vehicle
+          .card.card-inverse.m-a.card-neutral
+            .card-header
+                | Co-Pilots
+            .card-block
+              .card-text
+                .muted No co-pilots for this vehicle
+        .col-md-4
+          .card.card-inverse.m-a.card-neutral
+            .card-header
+                | Parts
+            .card-block
+              .card-text
+                  .muted No parts for this vehicle
