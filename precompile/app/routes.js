@@ -59,6 +59,16 @@
             controllerAs: 'vc'
           }
         }
+      })
+      .state('vehicles_overview', {
+        url: '/vehicles/:id',
+        views: {
+          main: {
+            templateUrl: 'vehicles/overview',
+            controller: 'vehiclesOverviewController',
+            controllerAs: 'vc'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');

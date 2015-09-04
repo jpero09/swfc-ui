@@ -12,7 +12,6 @@ util.inherits(PartsController, ctrlBase);
 
 PartsController.prototype.getAll = function(req, res) {
   var self = this;
-  logger.debug('self.object:', self.object);
   var options = PartsController.super_.prototype.getOptions.call(this);
   options.uri = options.uri + '/' + self.object;
 
