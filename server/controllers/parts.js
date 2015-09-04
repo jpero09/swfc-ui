@@ -15,7 +15,7 @@ PartsController.prototype.getAll = function(req, res) {
   logger.debug('self.object:', self.object);
   var options = PartsController.super_.prototype.getOptions.call(this);
   options.uri = options.uri + '/' + self.object;
-  
+
   //logger.debug('Making service request:', options);
   request(options, function(error, response, body) {
     if(error) {

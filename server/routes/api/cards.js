@@ -1,8 +1,8 @@
-var controllerRef = require('../../controllers/cards');
+var ControllerRef = require('../../controllers/cards');
 
 module.exports = function(app) {
   var router = express.Router();
-  var controller = new controllerRef();
+  var controller = new ControllerRef();
 
   router
   //  .get('/', controller.getAll);

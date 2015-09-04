@@ -5,7 +5,7 @@ var baseController = function(serviceName) {
   self.timeout = config.get('services:timeout');
   self.serviceName = null;
   self.baseUri = null;
-  
+
   if(serviceName) {
     self.serviceName = serviceName;
     var serviceConfig = config.get('services:' + serviceName);
