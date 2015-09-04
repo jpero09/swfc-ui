@@ -3,17 +3,17 @@ var _ = require('lodash');
 var util = require('util');
 var ctrlBase = require('./baseController');
 
-var CardController = function() {
+var PartsController = function() {
   var self = this;
-  CardController.super_.call(self, 'swfc'); // Call the base init
-  self.object = 'cards';
+  PartsController.super_.call(self, 'swfc'); // Call the base init
+  self.object = 'parts';
 };
-util.inherits(CardController, ctrlBase);
+util.inherits(PartsController, ctrlBase);
 
-CardController.prototype.getAll = function(req, res) {
+PartsController.prototype.getAll = function(req, res) {
   var self = this;
   logger.debug('self.object:', self.object);
-  var options = CardController.super_.prototype.getOptions.call(this);
+  var options = PartsController.super_.prototype.getOptions.call(this);
   options.uri = options.uri + '/' + self.object;
   
   //logger.debug('Making service request:', options);
@@ -25,4 +25,4 @@ CardController.prototype.getAll = function(req, res) {
   });
 };
 
-module.exports = CardController;
+module.exports = PartsController;
