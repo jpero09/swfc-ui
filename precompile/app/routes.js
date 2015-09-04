@@ -30,6 +30,16 @@
           }
         }
       })
+     .state('events', {
+        url: '/events',
+        views: {
+          main: {
+            templateUrl: 'events/events',
+            controller: 'eventsController',
+            controllerAs: 'ec'
+          }
+        }
+      })
      .state('parts', {
         url: '/parts',
         views: {
