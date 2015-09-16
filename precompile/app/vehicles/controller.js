@@ -42,17 +42,17 @@
           $scope.isLoading = false;
         }
       );
-      
+
       // TODO: Make this async
       Vehicles.GetParts({id: $stateParams.id},
         function(partsData) {
           $scope.parts = partsData;
         },
         function(error) {
-         $scope.error = error;
+          $scope.error = error;
         }
       );
-      
+
       initNavLinks();
     };
 

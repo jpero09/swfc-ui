@@ -43,7 +43,7 @@
           $scope.isLoading = false;
         }
       );
-      
+
       // TODO: Make this async
       Parts.GetVehicles({id: $stateParams.id},
         function(vehiclesData) {
@@ -53,7 +53,7 @@
           $scope.error = error;
         }
       );
-      
+
       initNavLinks();
     };
 
