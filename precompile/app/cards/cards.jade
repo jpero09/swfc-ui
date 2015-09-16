@@ -14,11 +14,12 @@ div
       .col-md-12
         .card.card-inverse.m-a(data-ng-class='{"L":"card-light", "D":"card-dark", "N":"card-neutral"}[card.side]')
           .card-image
-            img.media-object(src='./images/cards/0-Base.jpg', alt='{{card.firstName}} {{card.lastName}}')
+            img.media-object(src='./images/cards/{{card.id}}_ll.png', title='{{card.name}}')
           .card-header
-              | {{card.firstName}} {{card.lastName}}
+              | {{card.name}}
               span(data-ng-show='card.nickname') &nbsp;[{{card.nickname}}]
               .side {{card.side}}
+              i.fa.fa-shopping-cart.pull-right.text-warning(title='Junkyard Exclusive', data-ng-show='card.is_junkyard_exclusive')
           .card-block
             .card-text
               div Range: {{card.range}}
@@ -31,6 +32,6 @@ div
               | Skill: {{card.skill.name}}
           .card-footer    
             label Types:&nbsp;
-            i.fa.fa-mars(data-ng-show='card.gender === "Male"', title='Male')
-            i.fa.fa-venus(data-ng-show='card.gender === "Female"', title='Female')
+            i.fa.fa-mars(data-ng-show='card.gender === "M"', title='Male')
+            i.fa.fa-venus(data-ng-show='card.gender === "F"', title='Female')
             i.fa(data-ng-repeat='t in card.types', data-ng-class='getTypeIcon(t)', title='{{t}}')

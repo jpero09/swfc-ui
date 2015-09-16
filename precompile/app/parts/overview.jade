@@ -1,0 +1,53 @@
+div
+  div(data-ng-show='isLoading')
+    .loading 
+      i.fa.fa-empire.fa-spin
+      | Loading...
+  div(data-ng-show='!isLoading')
+    .row
+      .col-md-12
+        .m-a
+          a(type='button', href='./parts').btn.btn-secondary 
+            i.fa.fa-arrow-left
+            | &nbsp;Back
+    .row(data-ng-show='error')
+      .col-md-12
+        .alert.alert-danger {{error}}
+    .row(data-ng-show='!part')
+      .col-md-12
+        .m-a
+          .alert.alert-danger.fade.in 
+            i.fa.fa-exclamation-triangle
+            span &nbsp;No data for this part is available at this time.
+    div(data-ng-show='part')       
+      .row
+        .col-md-12
+          .card.card-inverse.m-a.card-neutral
+            .card-image
+              img.media-object(data-ng-src='./images/parts/{{part.id}}_ll.png', alt='{{part.name}}')
+            .card-header
+                | {{part.name}}
+            .card-block
+              .card-text.pull-left
+                div Cost: {{part.cost}}
+                div ACC: {{part.accuracy}}
+                div EVA: {{part.evade}}
+                div # of Actions: {{part.attacksPerTurn}}
+            .clearfix    
+            .card-block
+              .card-text
+                div {{part.description}}
+      .row
+        .col-md-12
+          .card.card-inverse.m-a.card-neutral
+            .card-header
+                | Vehicles
+            .card-block(data-ng-hide='vehicles && vehicles.length')
+              .card-text
+                  .muted No vehicles for this part
+            .card-block(data-ng-show='vehicles && vehicles.length')
+              .card-text
+                .pull-left(data-ng-repeat='vehicle in vehicles') 
+                  a(href='./vehicles/{{vehicle.id}}')
+                    img.thumb(src='./images/vehicles/{{vehicle.id}}_ll.png', title='{{vehicle.name}}')
+                .clearfix

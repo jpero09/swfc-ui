@@ -10,6 +10,9 @@ div
           a(type='button', href='./vehicles').btn.btn-secondary 
             i.fa.fa-arrow-left
             | &nbsp;Back
+    .row(data-ng-show='error')
+      .col-md-12
+        .alert.alert-danger {{error}}
     .row(data-ng-show='!vehicle')
       .col-md-12
         .m-a
@@ -37,7 +40,7 @@ div
               .card-text
                 div {{vehicle.description}}
       .row
-        .col-md-8
+        .col-md-7
           .card.card-inverse.m-a.card-neutral
             .card-header
                 | Pilots
@@ -50,10 +53,25 @@ div
             .card-block
               .card-text
                 .muted No co-pilots for this vehicle
-        .col-md-4
+        .col-md-5
           .card.card-inverse.m-a.card-neutral
             .card-header
                 | Parts
-            .card-block
+            .card-block(data-ng-show='!parts || !parts.length')
               .card-text
                   .muted No parts for this vehicle
+            .card-block(data-ng-show='parts && parts.length')
+              .card-text(data-ng-repeat='part in parts') 
+                .pull-left
+                  a(href='./parts/{{part.id}}')
+                    img.thumb(src='./images/parts/{{part.id}}_ll.png', title='{{part.name}}')
+                .pull-left.m-a.parts-sub
+                  div 
+                    a(href='./parts/{{part.id}}') {{part.name}}
+                  div Cost: {{part.cost}}
+                  div(data-ng-show='part.attack') ATK: {{part.attack}}
+                  div(data-ng-show='part.defense') DEF: {{part.defense}}
+                  div(data-ng-show='part.hp') HP: {{part.hp}}
+                  div(data-ng-show='part.accuracy') ACC: {{part.accuracy}}
+                  div(data-ng-show='part.evade') EVA: {{part.evade}}
+                .clearfix

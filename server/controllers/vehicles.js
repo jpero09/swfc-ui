@@ -38,4 +38,18 @@ VehiclesController.prototype.getById = function(req, res) {
   });
 };
 
+VehiclesController.prototype.getParts = function(req, res) {
+  var self = this;
+  var options = VehiclesController.super_.prototype.getOptions.call(this);
+  options.uri = options.uri + '/' + self.object + '/' + req.params.id + '/parts';
+
+  logger.debug('Making service request:', options);
+  request(options, function(error, response, body) {
+    if(error) {
+      return res.status(500).json({message: 'An unexpected error has occurred.', error: error});
+    }
+    res.json(body);
+  });
+};
+
 module.exports = VehiclesController;

@@ -24,7 +24,9 @@
       Get: {method: 'GET', timeout: defaultTimeout},
       GetAll: {method: 'GET', timeout: defaultTimeout, isArray: true},
       Save: {method: 'POST', timeout: defaultTimeout},
-      Delete: {method: 'DELETE', timeout: defaultTimeout}
+      Delete: {method: 'DELETE', timeout: defaultTimeout},
+      GetVehicles: {method: 'GET', timeout: defaultTimeout, isArray: true, 
+        url: './api/parts/:id/vehicles'}
     });
   }
 
@@ -34,7 +36,9 @@
       Get: {method: 'GET', timeout: defaultTimeout},
       GetAll: {method: 'GET', timeout: defaultTimeout, isArray: true},
       Save: {method: 'POST', timeout: defaultTimeout},
-      Delete: {method: 'DELETE', timeout: defaultTimeout}
+      Delete: {method: 'DELETE', timeout: defaultTimeout},
+      GetParts: {method: 'GET', timeout: defaultTimeout, isArray: true, 
+        url: './api/vehicles/:id/parts'}
     });
   }
 })();

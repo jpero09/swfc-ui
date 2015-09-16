@@ -3,7 +3,8 @@
 
   angular
     .module('app.controllers')
-    .controller('partsController', partsController);
+    .controller('partsController', partsController)
+    .controller('partsOverviewController', partsOverviewController);
 
   /* @ngInject */
   function partsController($scope, Parts) {
@@ -20,6 +21,39 @@
           $scope.isLoading = false;
         }
       );
+      initNavLinks();
+    };
+
+    $scope.init();
+  };
+
+  /* @ngInject */
+  function partsOverviewController($scope, $stateParams, Parts) {
+    $scope.isLoading = true;
+    $scope.vehicles = null;
+
+    $scope.init = function() {
+      Parts.Get({id: $stateParams.id},
+        function(data) {
+          $scope.isLoading = false;
+          $scope.part = data;
+        },
+        function(error) {
+          $scope.error = error;
+          $scope.isLoading = false;
+        }
+      );
+      
+      // TODO: Make this async
+      Parts.GetVehicles({id: $stateParams.id},
+        function(vehiclesData) {
+          $scope.vehicles = vehiclesData;
+        },
+        function(error) {
+          $scope.error = error;
+        }
+      );
+      
       initNavLinks();
     };
 
