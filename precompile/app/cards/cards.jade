@@ -10,15 +10,104 @@ div
           .alert.alert-danger.fade.in 
             i.fa.fa-exclamation-triangle
             span &nbsp;No card data available at this time.
-    .row(data-ng-repeat='card in cards')
-      .col-md-12
-        .card.card-inverse.m-a(data-ng-class='{"L":"card-light", "D":"card-dark", "N":"card-neutral"}[card.side]')
+    .row(data-ng-show='cards && cards.length')
+      .col-sm-2.col-md-2.col-lg-2
+        .sub-nav
+          .sub-nav-header Refine By:
+          .sub-nav-section
+            ul
+              li 
+                .title Rarity
+              li
+                input(type='checkbox', id='chkRarity5', data-ng-model='filter.rarity.five')
+                label(for='chkRarity5')
+                  i.fa.fa-star.text-warning
+                  i.fa.fa-star.text-warning
+                  i.fa.fa-star.text-warning
+                  i.fa.fa-star.text-warning
+                  i.fa.fa-star.text-warning
+              li
+                input(type='checkbox', id='chkRarity4', data-ng-model='filter.rarity.four')
+                label(for='chkRarity4')
+                  i.fa.fa-star.text-warning
+                  i.fa.fa-star.text-warning
+                  i.fa.fa-star.text-warning
+                  i.fa.fa-star.text-warning
+                  i.fa.fa-star-o.text-warning
+              li
+                input(type='checkbox', id='chkRarity3', data-ng-model='filter.rarity.three')
+                label(for='chkRarity3')
+                  i.fa.fa-star.text-warning
+                  i.fa.fa-star.text-warning
+                  i.fa.fa-star.text-warning
+                  i.fa.fa-star-o.text-warning
+                  i.fa.fa-star-o.text-warning
+          .sub-nav-section
+            ul
+              li 
+                .title Alignment
+              li
+                input(type='checkbox', id='chkAffinityL', data-ng-model='filter.affinity.l')
+                label(for='chkAffinityL') Light
+              li
+                input(type='checkbox', id='chkAffinityD', data-ng-model='filter.affinity.d')
+                label(for='chkAffinityD') Dark
+              li
+                input(type='checkbox', id='chkAffinityN', data-ng-model='filter.affinity.n')
+                label(for='chkAffinityN') Neutral
+          .sub-nav-section
+            ul
+              li 
+                .title Specials
+              li
+                input(type='checkbox', id='chkSkilled', data-ng-model='filter.skill')
+                label(for='chkSkilled')
+                  i.fa.fa-plus-square.text-info
+                  | Skilled
+              li
+                input(type='checkbox', id='chkSupport', data-ng-model='filter.support')
+                label(for='chkSupport')
+                  i.fa.fa-child.text-success
+                  | Support
+              li
+                input(type='checkbox', id='chkJunkyard', data-ng-model='filter.junkyard')
+                label(for='chkJunkyard') 
+                  i.fa.fa-shopping-cart.text-warning
+                  | Junkyard
+          .sub-nav-section
+            ul
+              li 
+                .title Range
+              li
+                input(type='checkbox', id='chkRangeS', data-ng-model='filter.range.s')
+                label(for='chkRangeS') Short
+              li
+                input(type='checkbox', id='chkRangeM', data-ng-model='filter.range.m')
+                label(for='chkRangeM') Medium
+              li
+                input(type='checkbox', id='chkRangeL', data-ng-model='filter.range.l')
+                label(for='chkRangeL') Long
+          .sub-nav-section
+            ul
+              li 
+                .title Types
+              li
+                .text-muted Coming Soon
+      .col-xs-12.col-sm-10.col-md-10.col-lg-10
+        .input-group.m-a
+          span.input-group-addon
+            i.fa.fa-search
+          input(type="text", placeholder="Filter", data-ng-model='filter.name').form-control
+        .card.card-inverse.m-a(data-ng-repeat='card in filteredCards = (cards | filter:explorerFilter)', 
+          data-ng-class='{"L":"card-light", "D":"card-dark", "N":"card-neutral"}[card.side]')
           .card-image
             img.media-object(src='./images/cards/{{card.id}}_ll.png', title='{{card.name}}')
           .card-header
               | {{card.name}}
               span(data-ng-show='card.nickname') &nbsp;[{{card.nickname}}]
               .side {{card.side}}
+              i.fa.fa-plus-square.pull-right.text-info(title='Skill', data-ng-show='card.skill_id')
+              i.fa.fa-plus-child.pull-right.text-success(title='Support Ability', data-ng-show='card.support_id')
               i.fa.fa-shopping-cart.pull-right.text-warning(title='Junkyard Exclusive', data-ng-show='card.is_junkyard_exclusive')
           .card-block
             .card-text
@@ -35,3 +124,6 @@ div
             i.fa.fa-mars(data-ng-show='card.gender === "M"', title='Male')
             i.fa.fa-venus(data-ng-show='card.gender === "F"', title='Female')
             i.fa(data-ng-repeat='t in card.types', data-ng-class='getTypeIcon(t)', title='{{t}}')
+        .alert.alert-warning.m-a(data-ng-show='!filteredCards.length')
+          i.fa.fa-exclamation-triangle
+          | No results for current filter

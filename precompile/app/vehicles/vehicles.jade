@@ -17,6 +17,8 @@ div
             img.media-object(data-ng-src='./images/vehicles/{{vehicle.id}}_ll.png', alt='{{vehicle.name}}')
           .card-header
               a(href='./vehicles/{{vehicle.id}}') {{vehicle.name}}
+              i.fa.fa-crosshairs.pull-right.text-warning(title='Legion at War Vehicle', 
+                data-ng-show='vehicle.legionAtWarVehicle')
           .card-block
             .card-text.pull-left
               div Cost: {{vehicle.cost}}
@@ -27,7 +29,7 @@ div
               div # of Actions: {{vehicle.attacksPerTurn}}
             .card-text.pull-left
               div Pilots: {{vehicle.numberOfPilots}}
-              div Co-Pilots: {{vehicle.numberOfCopilots}}
+              div Co-Pilots: {{vehicle.numberOfCoPilots}}
               div Parts: {{vehicle.parts}}
           .clearfix    
           .card-block
