@@ -16,7 +16,7 @@ div
           .card-image
             img.media-object(data-ng-src='./images/parts/{{part.id}}_ll.png', alt='{{part.name}}')
           .card-header
-              | {{part.name}}
+            a(href='./parts/{{part.id}}') {{part.name}}
           .card-block
             .card-text.pull-left
               div Cost: {{part.cost}}

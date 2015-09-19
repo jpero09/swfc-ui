@@ -50,6 +50,16 @@
           }
         }
       })
+      .state('parts_overview', {
+        url: '/parts/:id',
+        views: {
+          main: {
+            templateUrl: 'parts/overview',
+            controller: 'partsOverviewController',
+            controllerAs: 'pc'
+          }
+        }
+      })
      .state('vehicles', {
         url: '/vehicles',
         views: {
