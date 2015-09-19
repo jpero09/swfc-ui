@@ -5,8 +5,11 @@ module.exports = function home(app, options) {
   var spaRoutes = [
     '/home',
     '/cards',
+    '/cards/:id',
     '/vehicles',
+    '/vehicles/:id',
     '/parts',
+    '/parts/:id',
     '/events',
     '/law',
     '/forms',
