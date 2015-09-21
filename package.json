@@ -5,7 +5,7 @@
   "private": false,
   "main": "server/app",  
   "scripts": {
-    "dev": "NODE_ENV=dev&&npm start",
+    "dev": "NODE_ENV=dev&&NEW_RELIC_ENABLED=false&&npm start",
     "lint": "jscs . --reporter=./node_modules/jscs-stylish/jscs-stylish.js",
     "start": "node ./server/app",
     "postinstall": "gulp"
@@ -40,6 +40,7 @@
     "lodash": "3.8.0",
     "morgan": "1.6.1",
     "nconf": "0.7.2",
+    "newrelic": "1.22.0",
     "serve-favicon": "2.3.0",
     "serve-static": "1.10.0",
     "request": "2.51.0"
