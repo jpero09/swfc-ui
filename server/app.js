@@ -1,3 +1,6 @@
+// Monitoring:
+require('newrelic');
+
 var bodyParser = require('body-parser');
 var express = require('express');
 var http = require('http');
