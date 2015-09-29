@@ -1,6 +1,8 @@
 # swfc-ui
 UI for Star Wars Force Collection data
 
+[![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/jpero09/swfc)
+
 Note:Everything is very much a work in progress at this point. Just building out a basic framework to eventually build out into something hopefully useful.
 
 # Getting started
