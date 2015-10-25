@@ -1,23 +1,24 @@
 div
   div(data-ng-show='isLoading')
-    .loading 
+    .loading
       i.fa.fa-empire.fa-spin
       | Loading...
   div(data-ng-show='!isLoading')
     .row(data-ng-show='!vehicles || !vehicles.length')
       .col-md-12
         .m-a
-          .alert.alert-danger.fade.in 
+          .alert.alert-danger.fade.in
             i.fa.fa-exclamation-triangle
             span &nbsp;No vehicle data available at this time.
     .row(data-ng-repeat='vehicle in vehicles')
       .col-md-12
         .card.card-inverse.m-a.card-neutral
           .card-image
-            img.media-object(data-ng-src='./images/vehicles/{{vehicle.id}}_ll.png', alt='{{vehicle.name}}')
+            a(href='./vehicles/{{vehicle.id}}')
+              img.media-object(data-ng-src='./images/vehicles/{{vehicle.id}}_ll.png', alt='{{vehicle.name}}')
           .card-header
               a(href='./vehicles/{{vehicle.id}}') {{vehicle.name}}
-              i.fa.fa-crosshairs.pull-right.text-warning(title='Legion at War Vehicle', 
+              i.fa.fa-crosshairs.pull-right.text-warning(title='Legion at War Vehicle',
                 data-ng-show='vehicle.legionAtWarVehicle')
           .card-block
             .card-text.pull-left
@@ -31,7 +32,7 @@ div
               div Pilots: {{vehicle.numberOfPilots}}
               div Co-Pilots: {{vehicle.numberOfCoPilots}}
               div Parts: {{vehicle.parts}}
-          .clearfix    
+          .clearfix
           .card-block
             .card-text
               div {{vehicle.description}}
